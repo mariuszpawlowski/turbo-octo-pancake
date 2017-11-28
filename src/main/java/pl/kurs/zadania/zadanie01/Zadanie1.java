@@ -7,4 +7,10 @@ package pl.kurs.zadania.zadanie01;
  4. porównaj zmienne "rounded" z "randomDouble", wypisz na ekran informację jeżeli są równe
  */
 public class Zadanie1 {
+
+
+    public static void main(String[] args) {
+
+
+    }
 }
