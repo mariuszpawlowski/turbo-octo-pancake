@@ -1,15 +1,22 @@
 package pl.kurs.zadania.zadanie08;
 
-/*
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
-1. Zapisac linijke tekstu do pliku txt
-2. Odczytac z pliku
-
-Wskazowki:
-1. uzyc otwierania plikow txt z javy 8
-2. FileNotFoundException - podac cala sciezke do pliku C:\..\..\
-
- */
 public class Zadanie8 {
+
+	public static void main(String[] args) throws FileNotFoundException {
+	
+
+		
+		PrintWriter zapis = new PrintWriter("plik.txt");
+	      zapis.println("asdasdasdasdasd");
+	      zapis.close();
+	      
+	      Scanner odczyt = new Scanner(new File("plik.txt"));
+	      System.out.println(odczyt.nextLine());
+	}
 
 }

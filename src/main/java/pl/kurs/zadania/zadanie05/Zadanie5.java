@@ -15,14 +15,10 @@ public class Zadanie5 {
 
     public static void main(String[] args) {
 
-
         String imie;
         Scanner odczyt = new Scanner(System.in);
 
         List<String> lista = new ArrayList();
-
-
-
 
         // wczytanie imion do tablicy
         for (int i = 0; i < 3; i++) {
@@ -31,63 +27,38 @@ public class Zadanie5 {
             lista.add(imie);
         }
 
-
         // porównanie imion
 
         int index = 0;
-        for (int i = 0; i < lista.size(); i++) {
-            String im = lista.get(i);
+        int min = 0;
+        for (int i = 0; i < 2; i++) {
+            String im1 = lista.get(i);
+            String im2 = lista.get(i + 1);
 
-            int min = im.length();
+            if (im1.length() < im2.length()) {
+                min = im1.length();
+                index = i;
+            } else {
 
-
-            if (min > im.length()) {
-                min = im.length();
+                min = im2.length();
                 index = i;
             }
+
         }
+        System.out.println("najkrotsze imie to: " + lista.get(index));
+        System.out.println("ilosc liter " + min + " index wynosi " + index); // index zawsze wynosi 1 i nie sprawdza
+        // prawidłowo dla i=0;
 
-        System.out.println("najkrotsze " + lista.get(index));
-
-        index = 0;
-        for (int i = 0; i < lista.size(); i++) {
-            String im = (String) lista.get(i);
-            int max = im.length();
-
-
-            if (max < im.length()) {
-                max = im.length();
-                index = i;
-            }
-            // i++
-        }
-
-        System.out.println("najdluzsze " + lista.get(index));
-
-        int counter = 0;
-        for (String im : lista){
-
-
-            counter++;
-        }
-
-
-
-        System.out.println("najdluzsze " + lista.get(index));
-
-        // powtarzajace sie imionaa
-
-
-        int licznik = 0;
-
-        for (int i = 0; i < (int) lista.size(); i++) {
-            if (lista.get(i) == lista.get(i + 1)) {
-                System.out.println(lista.get(i) + "powtarza sie");
-                licznik++;
-            }
-            System.out.println("powtarza sie " + licznik + " razy");
-        }
-
+        /*
+         *
+         * // powtarzajace sie imiona
+         *
+         * int licznik = 0;
+         *
+         * for (int i = 0; i < (int) lista.size(); i++) { if (lista.get(i) ==
+         * lista.get(i + 1)) { System.out.println(lista.get(i) + "powtarza sie");
+         * licznik++; } System.out.println("powtarza sie " + licznik + " razy"); }
+         */
     }
 
 }

@@ -1,3 +1,5 @@
+package pl.kurs.zadania.zadanie08;
+
 import java.io.*;
 public class Zadanie81 {
 
