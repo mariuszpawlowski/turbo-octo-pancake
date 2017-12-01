@@ -1,4 +1,4 @@
-package pl.kurs.zadania.zadanie01;
+package pl.kurs.zadania.zadanie04;
 
 import java.util.ArrayList;
 import java.util.List;
