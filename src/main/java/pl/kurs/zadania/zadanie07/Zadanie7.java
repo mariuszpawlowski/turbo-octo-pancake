@@ -9,13 +9,15 @@ public class Zadanie7 {
 		// poprawna przy uzyciu parseInt
 		int x = Integer.parseInt("9");
 		System.out.println(x);
-	    
+
+		x = Integer.parseInt("9a");
+
 		
 		// niepoprawna conversion(znak1);
 		int znak1 = 1;
 		String znak = "3";
 
-		conversion(znak1);
+		//conversion(znak1);
 		conversion(znak);
 	}
 

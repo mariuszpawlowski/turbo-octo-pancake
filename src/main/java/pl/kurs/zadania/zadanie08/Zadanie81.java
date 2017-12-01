@@ -1,6 +1,15 @@
 package pl.kurs.zadania.zadanie08;
 
 import java.io.*;
+
+/*
+
+java.nio.file.Files;
+java.nio.file.Paths;
+
+odczyt zapis pliku ze stringami
+
+ */
 public class Zadanie81 {
 
 	public static void main(String[] args) throws IOException {
