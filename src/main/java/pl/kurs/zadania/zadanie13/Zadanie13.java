@@ -1,8 +1,22 @@
 package pl.kurs.zadania.zadanie13;
 
-/*
-Napisać program, który wczytuje od użytkownika ciąg znaków, a następnie two- rzy łańcuch będący odwróceniem podanego łańcucha
-i wyświetla go na ekranie. Przykładowo, dla łańcucha „Kot” wynikiem powinien być łańcuch „toK”.
- */
+import java.lang.StringBuffer;
+import java.util.Scanner;
+
 public class Zadanie13 {
+
+	public static void main(String[] args) {
+
+		String lancuch;
+		Scanner odczyt = new Scanner(System.in);
+
+		System.out.println("Podaj ciag znak�w");
+		lancuch = odczyt.nextLine();
+
+		StringBuffer buffer = new StringBuffer(lancuch);
+
+		buffer.reverse();
+		System.out.println(buffer);
+	}
+
 }

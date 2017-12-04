@@ -1,10 +1,33 @@
 package pl.kurs.zadania.zadanie10;
 
-/*
+import java.util.Scanner;
 
-Napisać program, który wczytuje od użytkownika ciąg znaków, a następnie wy- świetla informację o tym ile razy w tym ciągu powtarza się jego ostatni znak.
-Przykład, dla ciągu „Abrakadabra” program powinien wyświetlić 4, ponieważ ostatnim znakiem jest literka „a”, która występuje w podanym ciągu łącznie 4 razy.
-
- */
 public class Zadanie10 {
+
+	public static void main(String[] args) {
+
+		String lancuch;
+		Scanner odczyt = new Scanner(System.in);
+
+		System.out.println("Podaj ciag znak�w");
+		lancuch = odczyt.nextLine();
+
+		String str = new String(lancuch);
+		char[] array = str.toCharArray();
+
+		char koncowka = array[array.length - 1];
+
+		int licznik = 0;
+		
+		for (int i = 0; i < array.length; i++) {
+
+			if (koncowka == array[i]) {
+				licznik++;
+			}
+		}
+		int ilosc = licznik - 1;
+
+		System.out.println("Litera " + koncowka + " powtorzyla sie " + ilosc + " razy");
+	}
+
 }
