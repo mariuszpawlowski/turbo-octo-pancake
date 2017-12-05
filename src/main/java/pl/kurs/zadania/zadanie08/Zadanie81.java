@@ -1,38 +1,51 @@
 package pl.kurs.zadania.zadanie08;
 
 import java.io.*;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-/*
+//import Paths i Path ??????/
 
-java.nio.file.Files;
-java.nio.file.Paths;
-
-odczyt zapis pliku ze stringami
-
- */
 public class Zadanie81 {
 
 	public static void main(String[] args) throws IOException {
-		File plik1 = new File("plik1.txt");
-	      
-	      plik1.createNewFile();
-	      
-	      
-	      FileWriter zapis = new FileWriter(plik1); 
-	      
-	      zapis.write("aaaaaaaaaaa"); 
-	      zapis.flush();
-	      zapis.close();
 
-	      
-	      FileReader fr = new FileReader(plik1); 
-	      char [] a = new char[50];
-	      fr.read(a);   
-	      
-	      for(char c : a)
-	         System.out.print(c);   
-	      fr.close();
+		Path path = Paths.get(
+				"C:\\Users\\Ortnann\\git\\turbo-octo-pancake\\src\\main\\java\\pl\\kurs\\zadania\\zadanie08\\test.txt");
 
+		if (Files.exists(path)) {
+		
+			//Usuniêcie pliku 
+		try {
+			Files.delete(path);
+		} catch (IOException e) {
+			// deleting file failed
+			e.printStackTrace();
+		}
+		}
+		
+		
+		
+		//Utworzenie nowego pliku
+		try {
+
+			Files.createFile(path);
+
+		} catch (FileAlreadyExistsException ex) {
+
+			System.err.println("File already exists");
+		}
+
+		
+		//Zapis do pliku
+		String przyklad = "Przykladowy tekst";
+
+		Files.write(path, przyklad.getBytes());
+		
+		
+		//Wypisanie pliku
+		System.out.println(Files.readAllLines(path));
 	}
-
 }
