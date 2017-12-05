@@ -1,6 +1,8 @@
 package pl.kurs.zadania.zadanie08;
 
-import java.io.*;
+import pl.kurs.zadania.zadanie04.Zadanie4;
+
+import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,12 +14,15 @@ public class Zadanie81 {
 
 	public static void main(String[] args) throws IOException {
 
+		Zadanie4 zadanie4;
+		Zadanie8 zadanie8;
+
 		Path path = Paths.get(
 				"C:\\Users\\Ortnann\\git\\turbo-octo-pancake\\src\\main\\java\\pl\\kurs\\zadania\\zadanie08\\test.txt");
 
 		if (Files.exists(path)) {
 		
-			//Usuniêcie pliku 
+			//Usuniï¿½cie pliku 
 		try {
 			Files.delete(path);
 		} catch (IOException e) {
