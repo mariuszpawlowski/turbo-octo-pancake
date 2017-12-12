@@ -1,68 +1,69 @@
 package pl.kurs.zadania.zadanie14;
 
 public class Pozycja {
-	String nazwaTowaru;
-	int ileSztuk;
-	double cena;
+    private String nazwaTowaru;
+    private int ileSztuk;
+    private double cena;
 
-	public Pozycja(String nazwaTowaru, int ileSztuk, double cena) {
+    public Pozycja(String nazwaTowaru, int ileSztuk, double cena) {
 
-		this.ileSztuk = ileSztuk;
-		this.nazwaTowaru = nazwaTowaru;
-		this.cena = cena;
-	}
+        this.ileSztuk = ileSztuk;
+        this.nazwaTowaru = nazwaTowaru;
+        this.cena = cena;
+    }
 
-	public Pozycja() {
-		
-	}
+    public Pozycja() {
 
-	public int getIleSztuk() {
+    }
 
-		return ileSztuk;
-	}
+    public int getIleSztuk() {
 
-	public String getNazwaTowaru() {
+        return ileSztuk;
+    }
 
-		return nazwaTowaru;
-	}
+    public String getNazwaTowaru() {
 
-	public double getCena() {
+        return nazwaTowaru;
+    }
 
-		return cena;
-	}
-	
-	public void setIleSztuk(int ileSztuk) {
-		this.ileSztuk = ileSztuk;
-	}
-	
-	public void setNazwaTowaru(String nazwaTowaru) {
-		this.nazwaTowaru = nazwaTowaru;
-	}
-	
-	public void setCena(double cena) {
-		this.cena = cena;
-	}
-	
-	public double obliczWartosc(double cena, int iloscSztuk) {
-		//zwracaj¹c¹ wartoœæ pozycji zamówienia,
-		
-		double wartosc = cena * iloscSztuk;
-		
-		return wartosc;
-		
-	}	//This static method cannot hide the instance method from Object  - remove static
-	    //Jak ustawiæ graniczn¹ ilosc znaków dla poszczególnych zmiennych
-	
-	
-	public String toString() {
-		String lancuch = getNazwaTowaru()+"       "+getCena()+" z³       "+getIleSztuk()+" szt.      "+obliczWartosc(getCena(), getIleSztuk())+"z³";
-		return lancuch;
-	
-	}
+    public double getCena() {
 
-	
-	
-	
-	
-	
+        return cena;
+    }
+
+    public void setIleSztuk(int ileSztuk) {
+        this.ileSztuk = ileSztuk;
+    }
+
+    public void setNazwaTowaru(String nazwaTowaru) {
+        this.nazwaTowaru = nazwaTowaru;
+    }
+
+    public void setCena(double cena) {
+        this.cena = cena;
+    }
+
+    public double obliczWartosc(double cena, int iloscSztuk) {
+        //zwracajï¿½cï¿½ wartoï¿½ï¿½ pozycji zamï¿½wienia,
+
+        double wartosc = cena * iloscSztuk;
+
+        return wartosc;
+
+    }    //This static method cannot hide the instance method from Object  - remove static
+    //Jak ustawiï¿½ granicznï¿½ ilosc znakï¿½w dla poszczegï¿½lnych zmiennych
+
+
+    /*
+    http://www.samouczekprogramisty.pl/formatter-formatowanie-lancuchow-znakow/
+     */
+    @Override
+    public String toString() {
+
+        String lancuch = nazwaTowaru + "       " + cena + " zl       " + ileSztuk + " szt.      " + obliczWartosc(getCena(), getIleSztuk()) + "zl";
+
+        return lancuch;
+
+    }
+
 }
