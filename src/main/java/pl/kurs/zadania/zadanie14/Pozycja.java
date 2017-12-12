@@ -11,7 +11,11 @@ public class Pozycja {
 		this.nazwaTowaru = nazwaTowaru;
 		this.cena = cena;
 	}
-//czy gettery i settey s¹ tu w ogóle potrzebne
+
+	public Pozycja() {
+		
+	}
+
 	public int getIleSztuk() {
 
 		return ileSztuk;
@@ -39,7 +43,7 @@ public class Pozycja {
 		this.cena = cena;
 	}
 	
-	public static double obliczWartosc(double cena, int iloscSztuk) {
+	public double obliczWartosc(double cena, int iloscSztuk) {
 		//zwracaj¹c¹ wartoœæ pozycji zamówienia,
 		
 		double wartosc = cena * iloscSztuk;
@@ -55,6 +59,8 @@ public class Pozycja {
 		return lancuch;
 	
 	}
+
+	
 	
 	
 	

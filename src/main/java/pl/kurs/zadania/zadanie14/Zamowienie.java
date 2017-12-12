@@ -1,16 +1,21 @@
 package pl.kurs.zadania.zadanie14;
 
+import java.util.Arrays;
+
 public class Zamowienie {
 
 	Pozycja pozycje[] = new Pozycja[10];
+	
 
 	int ileDodanych; // liczba pozycji w zamówieniu
 	int maksRozmiar; // maksymalna liczba pozycji w zamówieniu
 
 	// konstruktor bezparametrowy – maksRozmiar ustalany na wartoœæ 10
-	/*
-	 * public Zamowienie() { maksRozmiar=10; }
-	 */
+
+	public Zamowienie() {
+		maksRozmiar = 10;
+
+	}
 
 	// konstruktor z parametrem okreœlaj¹cym maksymaln¹ liczbê pozycji w zamówieniu
 
@@ -21,27 +26,39 @@ public class Zamowienie {
 	// dodaje podan¹ pozycjê do zamówienia ??????????
 
 	void dodajPozycje(Pozycja p) {
-		int i = 0;
-		p = pozycje[i++];
+		for(int i=0; i<10; i++) {
+			pozycje[i] = p;
+		}
+		
 
 	}
 
-	// drugi raz taka sama metoda??
-	public static double obliczWartosc(double cena, int iloscSztuk) {
-		// zwracaj¹c¹ wartoœæ pozycji zamówienia,
+	
+	public double obliczWartosc(double cena, int iloscSztuk) {
+		
 
 		double wartosc = cena * iloscSztuk;
 
 		return wartosc;
 
 	}
-	// jak wypisaæ tablicê podzielon¹ na poszczególne elementy wiersza?
-	// polecenie: zwraca ³añcuch zawieraj¹cy spis pozycji zamówienia oraz ³¹czn¹
-	// wartoœæ zamówienia
 
 	public String toString() {
-		String lancuch = .NazwaTowaru()+"       "+getCena()+" z³       "+getIleSztuk()+" szt.      "+obliczWartosc(getCena(), getIleSztuk())+"z³";
+		String lancuch = "";
+		for (int i = 0; i < pozycje.length; i++) {
+			lancuch = pozycje.toString();
+		}
+		
+	
 		return lancuch;
 	
-	}
+		
+		}
+		
+		void wypisz(Pozycja p) {
+			for (int i = 0; i < pozycje.length; i++) {
+				System.out.println(pozycje[i]);
+			}
+}
+
 }
