@@ -50,8 +50,9 @@ public class Pozycja {
 
         return wartosc;
 
-    }    //This static method cannot hide the instance method from Object  - remove static
-    //Jak ustawi� graniczn� ilosc znak�w dla poszczeg�lnych zmiennych
+    }    
+    
+  
 
 
     /*
