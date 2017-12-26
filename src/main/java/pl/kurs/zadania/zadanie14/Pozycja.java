@@ -60,11 +60,44 @@ public class Pozycja {
      */
     @Override
     public String toString() {
+      String lancuch = "";
+        if (ileSztuk<5) {
+            lancuch = nazwaTowaru + "       " + cena + " zl       " + ileSztuk + " szt.      " + obliczWartosc(getCena(), getIleSztuk()) + "zl";
+        }
+        else
 
-        String lancuch = nazwaTowaru + "       " + cena + " zl       " + ileSztuk + " szt.      " + obliczWartosc(getCena(), getIleSztuk()) + "zl";
+            lancuch = nazwaTowaru + "       " + cena + " zl       " + ileSztuk + " szt.      " + obliczWartoscZRabatem(getCena(), getIleSztuk()) + "zl";
 
         return lancuch;
 
     }
 
+
+    double obliczWartoscZRabatem(double cena, int ileSztuk){
+        double wartoscZRabatem=0;
+        // 5–10 szt. rabat 5%
+
+        if (ileSztuk>=5 && ileSztuk<=10)
+        {
+           double wartoscZRabatem1 =  0.95* obliczWartosc(cena,ileSztuk );
+           wartoscZRabatem = wartoscZRabatem1;
+        }
+      else {
+
+            if (ileSztuk> 10 && ileSztuk <= 20) {
+                double wartoscZRabatem2 = 0.90 * obliczWartosc(cena, ileSztuk);
+                wartoscZRabatem = wartoscZRabatem2;
+            } else {
+
+
+                if (ileSztuk > 20) {
+                    double wartoscZRabatem3 = 0.85 * obliczWartosc(cena, ileSztuk);
+                    wartoscZRabatem = wartoscZRabatem3;
+                }
+
+            }
+        }
+
+        return wartoscZRabatem;
+    }
 }
