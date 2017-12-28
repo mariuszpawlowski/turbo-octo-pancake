@@ -1,6 +1,6 @@
 package pl.kurs.zadania.zadanie14;
 
-public class Pozycja {
+public class Pozycja implements Serializabe {
     private String nazwaTowaru;
     private int ileSztuk;
     private double cena;
@@ -64,10 +64,11 @@ public class Pozycja {
         if (ileSztuk<5) {
             lancuch = nazwaTowaru + "       " + cena + " zl       " + ileSztuk + " szt.      " + obliczWartosc(getCena(), getIleSztuk()) + "zl";
         }
-        else
-
+        else {
             lancuch = nazwaTowaru + "       " + cena + " zl       " + ileSztuk + " szt.      " + obliczWartoscZRabatem(getCena(), getIleSztuk()) + "zl";
-
+            double rabat = obliczWartosc(getCena(), getIleSztuk()) - obliczWartoscZRabatem(getCena(), getIleSztuk());
+            System.out.println("naliczono rabat w wysokosci: " + rabat + "zł");
+        }
         return lancuch;
 
     }

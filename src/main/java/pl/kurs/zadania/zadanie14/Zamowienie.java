@@ -1,7 +1,7 @@
 package pl.kurs.zadania.zadanie14;
 
-public class Zamowienie {
-
+public class Zamowienie implements Serializabe {
+	Pozycja a = new Pozycja();
 	private Pozycja pozycje[];
 
 	static int ileDodanych=0; // liczba pozycji w zamï¿½wieniu
@@ -28,12 +28,16 @@ public class Zamowienie {
 
 
 	public double obliczWartosc(double cena, int iloscSztuk) {
-		
 
-		double wartosc = cena * iloscSztuk;
+
+		double wartosc=0;
+		if (iloscSztuk<5) {
+			wartosc = cena * iloscSztuk;
+		}
+
+		else wartosc = a.obliczWartoscZRabatem(cena, iloscSztuk);
 
 		return wartosc;
-
 	}
 
 	@Override
@@ -102,17 +106,25 @@ public class Zamowienie {
 	
 	
 	void podsumowanie() {
-		double suma=0;
+		double suma = 0;
 		double cenajedn;
 		int iloscjedn;
-		
-		for (int i=0; i<ileDodanych; i++) {
+		double sumajedn;
+		for (int i = 0; i < ileDodanych; i++) {
 			cenajedn = pozycje[i].getCena();
 			iloscjedn = pozycje[i].getIleSztuk();
-			double sumajedn = cenajedn *iloscjedn;
-			suma = suma +sumajedn;
+			if (pozycje[i].getIleSztuk() < 5){
+				 sumajedn = cenajedn * iloscjedn;
+			suma = suma + sumajedn;
 		}
-		
+
+		else {
+
+				sumajedn = a.obliczWartoscZRabatem(pozycje[i].getCena(), pozycje[i].getIleSztuk());
+				suma = suma + sumajedn;
+			}
+
+	}
 		System.out.println("Razem: "+suma+ " zl");
 	}
 }
