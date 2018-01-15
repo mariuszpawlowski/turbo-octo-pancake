@@ -1,6 +1,6 @@
 package pl.kurs.zadania.zadanie14;
 
-public class Pozycja {
+public class Pozycja implements Serializabe {
     private String nazwaTowaru;
     private int ileSztuk;
     private double cena;
@@ -50,8 +50,9 @@ public class Pozycja {
 
         return wartosc;
 
-    }    //This static method cannot hide the instance method from Object  - remove static
-    //Jak ustawi� graniczn� ilosc znak�w dla poszczeg�lnych zmiennych
+    }    
+    
+  
 
 
     /*
@@ -59,11 +60,45 @@ public class Pozycja {
      */
     @Override
     public String toString() {
-
-        String lancuch = nazwaTowaru + "       " + cena + " zl       " + ileSztuk + " szt.      " + obliczWartosc(getCena(), getIleSztuk()) + "zl";
-
+      String lancuch = "";
+        if (ileSztuk<5) {
+            lancuch = nazwaTowaru + "       " + cena + " zl       " + ileSztuk + " szt.      " + obliczWartosc(getCena(), getIleSztuk()) + "zl";
+        }
+        else {
+            lancuch = nazwaTowaru + "       " + cena + " zl       " + ileSztuk + " szt.      " + obliczWartoscZRabatem(getCena(), getIleSztuk()) + "zl";
+            double rabat = obliczWartosc(getCena(), getIleSztuk()) - obliczWartoscZRabatem(getCena(), getIleSztuk());
+            System.out.println("naliczono rabat w wysokosci: " + rabat + "zł");
+        }
         return lancuch;
 
     }
 
+
+    double obliczWartoscZRabatem(double cena, int ileSztuk){
+        double wartoscZRabatem=0;
+        // 5–10 szt. rabat 5%
+
+        if (ileSztuk>=5 && ileSztuk<=10)
+        {
+           double wartoscZRabatem1 =  0.95* obliczWartosc(cena,ileSztuk );
+           wartoscZRabatem = wartoscZRabatem1;
+        }
+      else {
+
+            if (ileSztuk> 10 && ileSztuk <= 20) {
+                double wartoscZRabatem2 = 0.90 * obliczWartosc(cena, ileSztuk);
+                wartoscZRabatem = wartoscZRabatem2;
+            } else {
+
+
+                if (ileSztuk > 20) {
+                    double wartoscZRabatem3 = 0.85 * obliczWartosc(cena, ileSztuk);
+                    wartoscZRabatem = wartoscZRabatem3;
+                }
+
+            }
+        }
+
+        return wartoscZRabatem;
+    }
 }
