@@ -4,30 +4,33 @@ import java.util.List;
 
 public class Lista {
 
+    public int element;
+
+    int i = 0;
     private int liczby [];
     private int pojemnosc;
     private int rozmiar;
 
-
     public Lista (int pojemnosc){
 
-        this. pojemnosc = pojemnosc;
+        this.pojemnosc = pojemnosc;
 
-        //Lista liczby [] = new Lista[pojemnosc];
-
-            }
-
-           void dodajElement (int element){
-
-                try {
-                    liczby.add
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.println("Tablica pełna");
-
-                }
+        int liczby[] = new int [pojemnosc];
 
             }
 
+           void dodajElement (int element) {
+
+                this.element = element;
+
+
+                liczby[i] = element;
+                i++;
+
+
+           }
+
+           /*
             int znajdz (int szukana){
 
         boolean wynik = false;
@@ -46,6 +49,6 @@ public class Lista {
 
         return -1;
             }
-
+*/
 
 }
