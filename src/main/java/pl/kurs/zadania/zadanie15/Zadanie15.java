@@ -1,5 +1,7 @@
 package pl.kurs.zadania.zadanie15;
 
+import java.io.IOException;
+
 /*
 Napisać metode liczZnakiSlowa, która zlicza: • liczbę znaków w pliku,
 • liczbę białych znaków w pliku (białe znaki to spacja, tabulator, znacznik końca wiersza),
@@ -9,4 +11,13 @@ nionych podpunktów.
 
  */
 public class Zadanie15 {
+
+    public static void main(String[] args) throws IOException {
+
+Zliczanie a = new Zliczanie();
+
+a.liczZnakiiSlowa();
+
+    }
+
 }

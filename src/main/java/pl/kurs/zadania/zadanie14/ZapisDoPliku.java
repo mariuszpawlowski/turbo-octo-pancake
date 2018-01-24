@@ -1,6 +1,10 @@
 package pl.kurs.zadania.zadanie14;
 
+
 import java.io.*;
+import java.io.Serializable;
+
+
 
 public class ZapisDoPliku {
 
@@ -18,6 +22,8 @@ public class ZapisDoPliku {
     // serialize the given object and save it to file
     public static void serialize(Zamowienie z, String nowezamowienie)
             throws IOException {
+
+
         FileOutputStream fos = new FileOutputStream(nowezamowienie);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(z);
