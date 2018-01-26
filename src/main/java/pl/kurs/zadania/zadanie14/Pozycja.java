@@ -1,6 +1,8 @@
 package pl.kurs.zadania.zadanie14;
 
-public class Pozycja implements Serializabe {
+import java.io.Serializable;
+
+public class Pozycja  implements Serializable {
     private String nazwaTowaru;
     private int ileSztuk;
     private double cena;
@@ -52,12 +54,7 @@ public class Pozycja implements Serializabe {
 
     }    
     
-  
 
-
-    /*
-    http://www.samouczekprogramisty.pl/formatter-formatowanie-lancuchow-znakow/
-     */
     @Override
     public String toString() {
       String lancuch = "";

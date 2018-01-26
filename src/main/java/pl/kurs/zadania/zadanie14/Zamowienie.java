@@ -1,14 +1,22 @@
 package pl.kurs.zadania.zadanie14;
+import java.io.IOException;
+import java.io.Serializable;
 
-public class Zamowienie implements Serializabe {
+
+
+public class Zamowienie implements Serializable  {
+
+	String z;
+
 	Pozycja a = new Pozycja();
 	private Pozycja pozycje[];
 
-	static int ileDodanych=0; // liczba pozycji w zamï¿½wieniu
+	static int ileDodanych = 0; // liczba pozycji w zamï¿½wieniu
 	int maksRozmiar; // maksymalna liczba pozycji w zamï¿½wieniu
 	Pozycja temp = new Pozycja();
+
 	// konstruktor bezparametrowy ï¿½ maksRozmiar ustalany na wartoï¿½ï¿½ 10
-	public Zamowienie(){
+	public Zamowienie() {
 		maksRozmiar = 10;
 		pozycje = new Pozycja[maksRozmiar];
 
@@ -26,16 +34,13 @@ public class Zamowienie implements Serializabe {
 	// dodaje podanï¿½ pozycjï¿½ do zamï¿½wienia ??????????
 
 
-
 	public double obliczWartosc(double cena, int iloscSztuk) {
 
 
-		double wartosc=0;
-		if (iloscSztuk<5) {
+		double wartosc = 0;
+		if (iloscSztuk < 5) {
 			wartosc = cena * iloscSztuk;
-		}
-
-		else wartosc = a.obliczWartoscZRabatem(cena, iloscSztuk);
+		} else wartosc = a.obliczWartoscZRabatem(cena, iloscSztuk);
 
 		return wartosc;
 	}
@@ -45,7 +50,7 @@ public class Zamowienie implements Serializabe {
 
 		StringBuffer stringBuffer = new StringBuffer();
 
-		for (int i = 0; i < ileDodanych; i++){
+		for (int i = 0; i < ileDodanych; i++) {
 			stringBuffer.append(pozycje[i].toString());
 			stringBuffer.append("\n");
 		}
@@ -57,7 +62,6 @@ public class Zamowienie implements Serializabe {
 		//tutaj juz obiekt p jest podwojony
 
 		if (ileDodanych < maksRozmiar) {
-
 
 
 			pozycje[ileDodanych] = p;
@@ -74,37 +78,37 @@ public class Zamowienie implements Serializabe {
 
 			if (sprawdzenie == true) {
 				//int wynik = p.getIleSztuk() + pozycje[ileDodanych-1].getIleSztuk();
-				int wynik = 1 + pozycje[ileDodanych-1].getIleSztuk();
+				int wynik = 1 + pozycje[ileDodanych - 1].getIleSztuk();
 				pozycje[ileDodanych - 2].setIleSztuk(wynik);
 				ileDodanych = ileDodanych - 1;
-				System.out.println("Dodano powtarzajaca sie pozycje: "+p.getNazwaTowaru());
+				System.out.println("Dodano powtarzajaca sie pozycje: " + p.getNazwaTowaru());
 
 				//obiekt p jako parametr metody dodaj ma tyle sztuk ile w tabeli, a nie tyle co jako p1,p2...
 			}
 		}
-		System.out.println("Dodano pozycję: "+p.getNazwaTowaru()+" w ilosci: "+p.getIleSztuk());
+		System.out.println("Dodano pozycję: " + p.getNazwaTowaru() + " w ilosci: " + p.getIleSztuk());
 	}
-	
+
 	void usunPozycje(int indeks) {
-	
-				
-		for (int i=indeks; i<ileDodanych; i++) {
-						
-		pozycje[i] = pozycje[i+1];
-		
+
+
+		for (int i = indeks; i < ileDodanych; i++) {
+
+			pozycje[i] = pozycje[i + 1];
+
 		}
-		ileDodanych = ileDodanych-1;
+		ileDodanych = ileDodanych - 1;
 	}
-	
+
 	void edytujPozycjeAdmin(int indeks) {
 		System.out.println("Edytujesz pozycje: " + pozycje[indeks]);
-		
+
 		pozycje[indeks].setCena(10.0);
 		pozycje[indeks].setNazwaTowaru("Cukier brazowy");
 		pozycje[indeks].setIleSztuk(5);
 	}
-	
-	
+
+
 	void podsumowanie() {
 		double suma = 0;
 		double cenajedn;
@@ -113,18 +117,41 @@ public class Zamowienie implements Serializabe {
 		for (int i = 0; i < ileDodanych; i++) {
 			cenajedn = pozycje[i].getCena();
 			iloscjedn = pozycje[i].getIleSztuk();
-			if (pozycje[i].getIleSztuk() < 5){
-				 sumajedn = cenajedn * iloscjedn;
-			suma = suma + sumajedn;
-		}
-
-		else {
+			if (pozycje[i].getIleSztuk() < 5) {
+				sumajedn = cenajedn * iloscjedn;
+				suma = suma + sumajedn;
+			} else {
 
 				sumajedn = a.obliczWartoscZRabatem(pozycje[i].getCena(), pozycje[i].getIleSztuk());
 				suma = suma + sumajedn;
 			}
 
+		}
+		System.out.println("Razem: " + suma + " zl");
 	}
-		System.out.println("Razem: "+suma+ " zl");
+
+	//Path path = Paths.get("/IdeaProjects/turbo-octo-pancake/src/main/java/pl/kurs/zadania/zadanie14");
+/*
+	private void writeObject(java.io.ObjectOutputStream out) throws IOException {
+
 	}
+
+
+	private void readObject(java.io.ObjectInputStream in)
+			throws IOException, ClassNotFoundException {
+
+
+	}
+
+	public static void zapiszZamowienie(Zamowienie z) {
+
+
+		public static Zamowienie wczytajZamowienie (String plikzamowienia){
+
+
+			return wczytany;
+		}
+}
+*/
+
 }

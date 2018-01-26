@@ -1,10 +1,13 @@
 package pl.kurs.zadania.zadanie14;
 
 
+import java.io.IOException;
+
+
 public class Zadanie14 {
 	
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws IOException {
+/*
 		System.out.println("Pozycje:");
 		Pozycja p1 = new Pozycja("Chleb", 1, 3.5);
 		System.out.println(p1); 
@@ -65,6 +68,25 @@ public class Zadanie14 {
 		z.dodajPozycje(p3);
 		System.out.println(z);
 		z.podsumowanie();
+
+
+		ZapisDoPliku.serialize(z, "/home/pawel/IdeaProjects/turbo-octo-pancake/src/main/java/pl/kurs/zadania/zadanie14/nowezamowienie1");
+
+		final int N = 10;
+		Lista l = new Lista(N);
+
+		for (int i = 0; i < N/2; ++i) {
+		l.dodajElement( (1 << i) );
+		}
+		l.dodajElement(2);
+		l.dodajElement(8);
+		l.pisz();
+		l.usunPierwszy(2);
+		l.pisz();
+	*/	Czas t3 = new Czas ("31 h 1 min");
+		System.out.println("Konstruktor z lancuchem: " + t3);
+		Czas t2 = new Czas (0, 123);
+
 	}
 		
 
