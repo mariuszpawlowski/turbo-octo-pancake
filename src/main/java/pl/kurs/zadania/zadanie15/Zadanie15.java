@@ -14,9 +14,13 @@ public class Zadanie15 {
 
     public static void main(String[] args) throws IOException {
 
-Zliczanie a = new Zliczanie();
+        Zliczanie a = new Zliczanie();
 
-a.liczZnakiiSlowa();
+       // a.liczZnakiiSlowa();
+
+
+        ZliczanieJava8 b = new ZliczanieJava8();
+        b.liczZnakiiSlowa();
 
     }
 

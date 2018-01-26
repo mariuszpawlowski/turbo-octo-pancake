@@ -10,6 +10,7 @@ Wynikiem funkcji jest tablica złożona z 3 liczb całkowitych po jednej dla wy
 nionych podpunktów.
 
  */
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -19,31 +20,34 @@ public class Zliczanie {
 
     void liczZnakiiSlowa() throws IOException {
 
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        String filePath2 = classLoader.getResource("a/plik.txt").getFile();
+        File file = new File(filePath2);
+
         String filePath = "/home/pawel/IdeaProjects/turbo-octo-pancake/src/main/java/pl/kurs/zadania/zadanie15/plik.txt";
         int number = 0;
         String odczytanyPlik = "";
-        String czytanaLinijka= "";
+        String czytanaLinijka = "";
         BufferedReader fileReader = null;
         int totalLength = 0;
         int enter = -1;
         String nowyWiersz = " ";
 
-            try {
-                fileReader = new BufferedReader(new FileReader(filePath));
-                while ((czytanaLinijka = fileReader.readLine()) != null) {
+        try {
+            fileReader = new BufferedReader(new FileReader(filePath));
+            while ((czytanaLinijka = fileReader.readLine()) != null) {
+                odczytanyPlik = odczytanyPlik + nowyWiersz + czytanaLinijka;
 
-                    odczytanyPlik= odczytanyPlik+ nowyWiersz + czytanaLinijka;
-
-
-
-                }
-
-
-            } finally {
-                if (fileReader != null) {
-                    fileReader.close();
-                }
             }
+
+
+        } finally {
+            if (fileReader != null) {
+                fileReader.close();
+            }
+        }
+
+
 
         StringTokenizer st = new StringTokenizer(odczytanyPlik);
 
@@ -53,18 +57,18 @@ public class Zliczanie {
 
         System.out.println("Liczba wyrazow: " + liczbaTokenow);
 
-        while(st.hasMoreTokens()) {
+        while (st.hasMoreTokens()) {
             String token = st.nextToken();
             totalLength = totalLength + token.length();
         }
-        System.out.println("Liczba znakow: "+totalLength);
+        System.out.println("Liczba znakow: " + totalLength);
 
         int dlugoscStringa = odczytanyPlik.length();
         int whiteSpace = dlugoscStringa - totalLength + enter;
 
-        System.out.println("Liczba bialych znakow "+ whiteSpace);
+        System.out.println("Liczba bialych znakow " + whiteSpace);
 
-       //tabulator jako 5 spacji
+        //tabulator jako 5 spacji
     }
 
 
