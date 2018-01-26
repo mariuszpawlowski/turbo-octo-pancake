@@ -55,6 +55,8 @@ public class Zadanie18 {
 
         String html = "";
 
+        StringBuilder stringBuilder = new StringBuilder();
+
 
         try {
 
@@ -82,6 +84,13 @@ public class Zadanie18 {
 
         html = beginHtml + "\n";
 
+        stringBuilder.append(beginHtml);
+        stringBuilder.append("\n");
+
+
+         html = stringBuilder.toString();
+
+
         for (int i = 0; i < dane.size(); i++) {
             StringTokenizer st = new StringTokenizer(dane.get(i));
 
@@ -99,7 +108,6 @@ public class Zadanie18 {
                     else
                         przyklad = przyklad + "<td>" + words[j] + "</td></tr>" +
                             "\n";
-
                 }
                 //tutaj dac przekazanie do html i wyzerowac przyklad
 
@@ -148,6 +156,7 @@ public class Zadanie18 {
         }
 
         }
+
 
 
     }
