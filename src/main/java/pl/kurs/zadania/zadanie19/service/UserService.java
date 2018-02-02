@@ -24,9 +24,7 @@ public class UserService {
 
     public static Person findOldestPerson(List<User> users) {
 
-        User najstarszy = new User();
-
-        najstarszy = users.get(0);
+        User najstarszy = users.get(0);
 
         for (int i = 1; i < users.size(); i++) {
             if (najstarszy.getPersonDetails().getAge() < users.get(i).getPersonDetails().getAge()) {
@@ -34,8 +32,7 @@ public class UserService {
             }
         }
 
-        Person najstarszyPerson = new Person();
-        najstarszyPerson = najstarszy.getPersonDetails();
+        Person najstarszyPerson = najstarszy.getPersonDetails();
 
         return najstarszyPerson;
     }
