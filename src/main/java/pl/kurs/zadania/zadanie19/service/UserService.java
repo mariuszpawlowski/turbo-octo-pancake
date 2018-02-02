@@ -29,7 +29,7 @@ public class UserService {
         najstarszy = users.get(0);
 
         for (int i = 1; i < users.size(); i++) {
-            if (najstarszy.getPersonDetails().getAge() > users.get(i).getPersonDetails().getAge()) {
+            if (najstarszy.getPersonDetails().getAge() < users.get(i).getPersonDetails().getAge()) {
                 najstarszy = users.get(i);
             }
         }
