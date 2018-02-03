@@ -1,6 +1,7 @@
 package pl.kurs.zadania.zadanie19.domain;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Person {

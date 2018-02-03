@@ -5,6 +5,7 @@ import org.junit.Test;
 import pl.kurs.zadania.zadanie19.domain.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
@@ -13,18 +14,20 @@ import static org.junit.Assert.*;
 public class UserServiceTest {
 
     private UserService userService;
+    private List<User> users;
+    private Person person1;
 
     @Before
     public void before(){
         userService = new UserService();
-    }
 
-    @Test
-    public void findOldestPerson_ShouldFindOldest(){
-        // Given
-        List <User> users= new ArrayList<>();
+        users= new ArrayList<>();
         User user1 = new User();
+<<<<<<< HEAD
         Person person1 = new Person();
+=======
+        person1 = new Person();
+>>>>>>> 9f892d9038b467705c9f1df4be3f15bab6d8cfb1
         Address address1 = new Address();
         Role role1 = new Role();
         Permission permission1 = new Permission();
@@ -58,6 +61,19 @@ public class UserServiceTest {
 
         permission1.setName("Jan");
 
+<<<<<<< HEAD
+=======
+        List<Address> adresy = new ArrayList<>();
+        adresy.add(address1);
+        adresy.add(address2);
+
+        person1.setAddresses(adresy);
+
+        person1.setAddresses(Arrays.asList(address1, address2));
+
+        user1.setPersonDetails(person1);
+
+>>>>>>> 9f892d9038b467705c9f1df4be3f15bab6d8cfb1
         //user2
         user2.setName("Jan");
         user2.setPassword("11");
@@ -81,14 +97,28 @@ public class UserServiceTest {
 
         permission2.setName("Jan");
 
+<<<<<<< HEAD
+        users.add(user1);
+        users.add(user2);
+=======
+        user2.setPersonDetails(person2);
+
         users.add(user1);
         users.add(user2);
 
+    }
+
+    @Test
+    public void findOldestPerson_ShouldFindOldest(){
+        // Given
+>>>>>>> 9f892d9038b467705c9f1df4be3f15bab6d8cfb1
+
         // When
         Person wynik = UserService.findOldestPerson(users);
-        // Then
 
-        assertThat(wynik).isEqualTo(user1);
+        // Then
+        assertThat(wynik).isEqualTo(person1);
+        assertThat(wynik.getAge()).isEqualTo(30);
 
     }
 
