@@ -1,6 +1,8 @@
 package pl.kurs.zadania.zadanie19.domain;
 
-public class User {
+import java.util.Comparator;
+
+public class User /*implements Comparable<User> */{
 
     private String name;
     private String password;
@@ -41,4 +43,13 @@ public class User {
                 ", personDetails=" + personDetails +
                 '}';
     }
+
+
+
+  /*  @Override
+    public int compareTo(User o) {
+
+        return o.getPersonDetails().getAge() - personDetails.getAge();
+
+    }*/
 }

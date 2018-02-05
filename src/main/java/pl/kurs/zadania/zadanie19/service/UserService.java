@@ -4,10 +4,7 @@ import pl.kurs.zadania.zadanie19.domain.Person;
 import pl.kurs.zadania.zadanie19.domain.Role;
 import pl.kurs.zadania.zadanie19.domain.User;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class UserService {
 
@@ -23,18 +20,15 @@ public class UserService {
     }
 
     public static Person findOldestPerson(List<User> users) {
+       // Comp comp = new Comp();
 
-        User najstarszy = users.get(0);
+        User najstarszy = users.stream()
+                .sorted((o1, o2) -> o2.getPersonDetails().getAge() - o1.getPersonDetails().getAge())
+                .findFirst()
+                .orElseThrow( () -> new IllegalArgumentException("Wrong input data") );
 
-        for (int i = 1; i < users.size(); i++) {
-            if (najstarszy.getPersonDetails().getAge() < users.get(i).getPersonDetails().getAge()) {
-                najstarszy = users.get(i);
-            }
-        }
+        return najstarszy.getPersonDetails();
 
-        Person najstarszyPerson = najstarszy.getPersonDetails();
-
-        return najstarszyPerson;
     }
 
     public static User findUserWithLongestUsername(List<User> users) {
