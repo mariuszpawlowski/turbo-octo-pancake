@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 public class CalculatorTest {
@@ -12,17 +14,16 @@ public class CalculatorTest {
 
     @Before
     public void before(){
-        calculator = new Calculator();
+        CalculatorDB calculatorDb = mock(CalculatorDB.class);
+        when(calculatorDb.getLiczba1()).thenReturn(1);
+        when(calculatorDb.getLiczba2()).thenReturn(2);
+        calculator = new Calculator(calculatorDb);
     }
 
     @Test
     public void addTwoNumbers_ShouldReturnCorrectResult(){
-        // Given
-        int a = 1;
-        int b = 2;
-
         // When
-        int wynik = calculator.add(a, b);
+        int wynik = calculator.add();
 
         // Then
         assertThat(wynik).isEqualTo(3);

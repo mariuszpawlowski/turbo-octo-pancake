@@ -5,18 +5,15 @@ import pl.kurs.zadania.zadanie19.domain.Role;
 import pl.kurs.zadania.zadanie19.domain.User;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class UserService {
 
     public static List<User> findUsersWhoHaveMoreThanOneAddress(List<User> users) {
-        List<User> listaOdfiltrowana = new ArrayList<>();
-        for (User user : users) {
-            if (user.getPersonDetails().getAddresses().size() > 1) {
-                listaOdfiltrowana.add(user);
-            }
-        }
 
-        return listaOdfiltrowana;
+        return users.stream()
+                .filter(x -> x.getPersonDetails().getAddresses().size() > 1)
+                .collect(Collectors.toList());
     }
 
     public static Person findOldestPerson(List<User> users) {
@@ -70,6 +67,10 @@ public class UserService {
         return permissions;
     }
 
+    // https://stackoverflow.com/questions/27534684/good-method-to-call-method-on-each-object-using-stream-api
+    // System.out.println w streamach
+    // wolanie metod statycznych
+    // ::
     public static void printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS(List<User> users) {
         List <String> permissions = new ArrayList<>();
 
@@ -82,6 +83,7 @@ public class UserService {
         System.out.println(permissions);
     }
 
+    //https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiMw9q1pY_ZAhXJJlAKHZQ9A7oQFggnMAA&url=https%3A%2F%2Fstackoverflow.com%2Fq%2F20363719&usg=AOvVaw06UHeJo0Mn6k790fAONUGk
     public static Map<Role, List<User>> groupUsersByRole(List<User> users) {
 
         Map<Role, List<User>> usersRole = new TreeMap<>();
