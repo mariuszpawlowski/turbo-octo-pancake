@@ -2,7 +2,13 @@ package pl.kurs.testy;
 
 public class Calculator {
 
-    public int add(int a, int b){
-        return a + b;
+    private CalculatorDB calculatorDB;
+
+    public Calculator(CalculatorDB calculatorDB) {
+        this.calculatorDB = calculatorDB;
+    }
+
+    public int add(){
+        return calculatorDB.getLiczba1() + calculatorDB.getLiczba2();
     }
 }
