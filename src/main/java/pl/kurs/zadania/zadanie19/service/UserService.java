@@ -79,6 +79,8 @@ public class UserService {
     }
 
     public static List<String> getSortedPermissionsOfUsersWithNameStartingWithA(List<User> users) {
+
+
 /*
         List <String> permissions = new ArrayList<>();
 
@@ -90,8 +92,18 @@ public class UserService {
         return permissions;
     }
 */
+
+// tu mozna sprawdzic permissions
+        // tylko wtedy trzeba liste przejrzec
+
         List<String> permissions = users.stream()
+                .filter(x -> x.getPersonDetails() != null && x.getPersonDetails().getRole() != null && x.getPersonDetails().getRole().getPermissions() != null
+                && x.getPersonDetails().getRole().getPermissions().size() != 0)
                 .filter(x -> x.getName().toString().startsWith("A"))
+                //.flatMap(x -> Arrays.stream(x.getPersonDetails().getRole().getPermissions().toArray()))
+                .flatMap(x -> x.getPersonDetails().getRole().getPermissions().stream())
+                .map(x -> new String(x.getName()))
+                .sorted()
                 .collect(Collectors.toList());
 
         return permissions;

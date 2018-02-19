@@ -18,35 +18,40 @@ public class UserServiceTest {
     private Person person1;
 
     @Before
-    public void before(){
+    public void before() {
         userService = new UserService();
 
-        users= new ArrayList<>();
+        users = new ArrayList<>();
         User user1 = new User();
-<<<<<<< HEAD
+
         Person person1 = new Person();
-=======
-        person1 = new Person();
->>>>>>> 9f892d9038b467705c9f1df4be3f15bab6d8cfb1
+
+
         Address address1 = new Address();
         Role role1 = new Role();
         Permission permission1 = new Permission();
+        permission1.setName("permission1");
 
         User user2 = new User();
         Person person2 = new Person();
         Address address2 = new Address();
         Role role2 = new Role();
         Permission permission2 = new Permission();
+        permission2.setName("apermission2");
+
+        role1.setPermissions(Arrays.asList(permission1, permission2));
+        person1.setRole(role1);
 
         //user1
-        user1.setName("Jan");
+        user1.setName("AJan");
         user1.setPassword("11");
+        user1.setPersonDetails(person1);
 
         person1.setName("Jan");
         person1.setSurname("Kowalski");
         person1.setAge(30);
 
-        List <String> phoneNumbers1 = new ArrayList<>();
+        List<String> phoneNumbers1 = new ArrayList<>();
         phoneNumbers1.add("666666666");
         phoneNumbers1.add("777777777");
 
@@ -59,10 +64,8 @@ public class UserServiceTest {
         address1.setHouseNumber(3);
         address1.setPostCode("81-370");
 
-        permission1.setName("Jan");
+      //  permission1.setName("Jan");
 
-<<<<<<< HEAD
-=======
         List<Address> adresy = new ArrayList<>();
         adresy.add(address1);
         adresy.add(address2);
@@ -71,18 +74,17 @@ public class UserServiceTest {
 
         person1.setAddresses(Arrays.asList(address1, address2));
 
-        user1.setPersonDetails(person1);
+       // user1.setPersonDetails(person1);
 
->>>>>>> 9f892d9038b467705c9f1df4be3f15bab6d8cfb1
         //user2
-        user2.setName("Jan");
+        user2.setName("AJan");
         user2.setPassword("11");
 
         person2.setName("Jan");
         person2.setSurname("Kowalski");
         person2.setAge(20);
 
-        List <String> phoneNumbers2 = new ArrayList<>();
+        List<String> phoneNumbers2 = new ArrayList<>();
         phoneNumbers2.add("666666666");
         phoneNumbers2.add("777777777");
 
@@ -95,23 +97,20 @@ public class UserServiceTest {
         address2.setHouseNumber(3);
         address2.setPostCode("81-370");
 
-        permission2.setName("Jan");
+      //  permission2.setName("Jan");
 
-<<<<<<< HEAD
         users.add(user1);
         users.add(user2);
-=======
+
         user2.setPersonDetails(person2);
 
-        users.add(user1);
-        users.add(user2);
 
     }
 
     @Test
-    public void findOldestPerson_ShouldFindOldest(){
+    public void findOldestPerson_ShouldFindOldest() {
         // Given
->>>>>>> 9f892d9038b467705c9f1df4be3f15bab6d8cfb1
+
 
         // When
         Person wynik = UserService.findOldestPerson(users);
@@ -121,5 +120,19 @@ public class UserServiceTest {
         assertThat(wynik.getAge()).isEqualTo(30);
 
     }
+
+    @Test
+    public void getSortedPermissionsOfUsersWithNameStartingWithA_ShouldGetSortedPermissionsOfUsersWithNameStartingWithA() {
+        // Given
+
+
+        // When
+        List<String> wynik = UserService.getSortedPermissionsOfUsersWithNameStartingWithA(users);
+
+        // Then
+
+
+    }
+
 
 }
