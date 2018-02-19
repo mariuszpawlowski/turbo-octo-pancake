@@ -23,7 +23,11 @@ public class UserServiceTest {
 
         users= new ArrayList<>();
         User user1 = new User();
+<<<<<<< HEAD
+        Person person1 = new Person();
+=======
         person1 = new Person();
+>>>>>>> 9f892d9038b467705c9f1df4be3f15bab6d8cfb1
         Address address1 = new Address();
         Role role1 = new Role();
         Permission permission1 = new Permission();
@@ -57,6 +61,8 @@ public class UserServiceTest {
 
         permission1.setName("Jan");
 
+<<<<<<< HEAD
+=======
         List<Address> adresy = new ArrayList<>();
         adresy.add(address1);
         adresy.add(address2);
@@ -67,6 +73,7 @@ public class UserServiceTest {
 
         user1.setPersonDetails(person1);
 
+>>>>>>> 9f892d9038b467705c9f1df4be3f15bab6d8cfb1
         //user2
         user2.setName("Jan");
         user2.setPassword("11");
@@ -90,6 +97,10 @@ public class UserServiceTest {
 
         permission2.setName("Jan");
 
+<<<<<<< HEAD
+        users.add(user1);
+        users.add(user2);
+=======
         user2.setPersonDetails(person2);
 
         users.add(user1);
@@ -100,6 +111,7 @@ public class UserServiceTest {
     @Test
     public void findOldestPerson_ShouldFindOldest(){
         // Given
+>>>>>>> 9f892d9038b467705c9f1df4be3f15bab6d8cfb1
 
         // When
         Person wynik = UserService.findOldestPerson(users);

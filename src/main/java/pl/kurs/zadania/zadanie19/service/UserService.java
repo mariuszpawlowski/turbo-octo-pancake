@@ -5,6 +5,7 @@ import pl.kurs.zadania.zadanie19.domain.Role;
 import pl.kurs.zadania.zadanie19.domain.User;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class UserService {
@@ -29,7 +30,7 @@ public class UserService {
     }
 
     public static User findUserWithLongestUsername(List<User> users) {
-
+/*
         User longestName = new User();
         longestName = users.get(0);
 
@@ -40,11 +41,21 @@ public class UserService {
         }
 
         return longestName;
+    */
+    // na lambdach:
+
+        User longestname = users.stream()
+                .sorted((o1,o2) -> o2.getName().toString().length() - o1.getName().toString().length())
+                .findFirst()
+                .orElseThrow( () -> new IllegalArgumentException("Wrong input data") );
+
+
+        return longestname;
     }
 
     public static String getNamesAndSurnamesCommaSeparatedOfAllUsersAbove18(List<User> users) {
 
-        String above18 = "";
+  /*      String above18 = "";
 
             for (User user : users) {
                 if (user.getPersonDetails().getAge() > 18) {
@@ -53,10 +64,22 @@ public class UserService {
             }
 
         return above18;
+        */
+
+  //na lambdach:
+
+
+        List<String> above18 =  users.stream()
+                .filter(x -> x.getPersonDetails().getAge() > 18)
+                .map(x -> new String (x.getPersonDetails().getName()+ " , "+ x.getPersonDetails().getSurname()))
+                .collect(Collectors.toList());
+
+
+        return above18.toString();
     }
 
     public static List<String> getSortedPermissionsOfUsersWithNameStartingWithA(List<User> users) {
-
+/*
         List <String> permissions = new ArrayList<>();
 
         for (User user : users) {
@@ -66,7 +89,13 @@ public class UserService {
         }
         return permissions;
     }
+*/
+        List<String> permissions = users.stream()
+                .filter(x -> x.getName().toString().startsWith("A"))
+                .collect(Collectors.toList());
 
+        return permissions;
+    }
     // https://stackoverflow.com/questions/27534684/good-method-to-call-method-on-each-object-using-stream-api
     // System.out.println w streamach
     // wolanie metod statycznych
